@@ -1,61 +1,54 @@
-// import { getSession } from "@auth0/nextjs-auth0";
-// import { redirect } from "next/navigation";
-
-// export default async function Home() {
-//   const session = await getSession();
-//   const { sub } = session?.user || {};
-//   console.log('sub ===>', sub);
-  
-//   if (session?.user){
-//     redirect('/dashboard');
-//   }
-//   return (
-//     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-//       <a href='/api/auth/login'>Login</a>
-//     </main>
-//   );
-// }
-
 import Link from 'next/link';
 import Post from '@/components/Post';
-// import styles from './page.module.css';
-import prisma from '@/lib/prisma';
 
-async function getPosts(){
-  const posts = await prisma.post.findMany({
-    where: {published: true},
-    include: {
-      author: {
-        select: {name: true}
+
+export default async function Home({searchParams}:any) {
+  try{
+    const { id } = searchParams;
+    console.log('searchParams ===>', id);
+    const res = await fetch(
+      `${process.env.BASE_URL}/api/get-posts`,
+      {
+        method: 'POST', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({id: id})
       }
-    }
-  })
-  return posts;
-}
-
-export default async function Home() {
-  const posts = await getPosts();
+    );
+    const data = await res.json();
+    console.log(`${process.env.BASE_URL}/api/get-posts`);
+    
+    console.log('DATA====>', data);
+    // userID = data.id;
+    
+    
+    
+    // const data = await res.json();
+    
+    // router.refresh()
+  } catch (error){
+    console.error(error);
+  }
   return (
     <main>
       <Link href={'/add-post'}>Add Post</Link>
-      <div>
-        <a href='/api/auth/logout'>Logout</a>
-      </div>
-      <br />
-      <h1>Feed</h1>
-      {
-        posts.map((post) => {
-          return (
-            <Post
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            content={post.content}
-            authorName={post.author}
-            />
-          )
-        })
-      }
+       <div>
+         <a href='/api/auth/logout'>Logout</a>
+       </div>
+       <br />
+       <h1>Feed</h1>
+       {/* {
+         posts.map((post) => {
+           return (
+             <Post
+             key={post.id}
+             id={post.id}
+             title={post.title}
+             content={post.content}
+             authorName={post.author}
+             />
+           )
+         })
+       } */}
     </main>
   )
 }

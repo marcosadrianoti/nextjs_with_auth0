@@ -17,5 +17,6 @@ export async function POST(request){
      });
       return NextResponse.json(result);
     }
-    return NextResponse.json({message: 'User found'});
+    console.log('Ja existe:',user.id);
+    return NextResponse.json({id: user.id});
 }
