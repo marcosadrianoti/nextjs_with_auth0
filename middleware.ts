@@ -4,6 +4,6 @@ export default withMiddlewareAuthRequired();
 
 export const config = {
   matcher: [
-    "/dashboard",
+    // "/api/add-user",
   ],
 }
