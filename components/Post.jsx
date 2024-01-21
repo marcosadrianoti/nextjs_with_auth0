@@ -1,4 +1,4 @@
-// import DeletePostButton from "./DeletePostButton";
+import DeletePostButton from "./DeletePostButton";
 
 export default function Post({id, title, content}){
     return (
@@ -6,7 +6,7 @@ export default function Post({id, title, content}){
             {/* <h3>{authorName}</h3> */}
             <h4>{title}</h4>
             <p>{content}</p>
-            {/* <DeletePostButton postId={id} /> */}
+            <DeletePostButton postId={id} />
         </div>
     )
 }

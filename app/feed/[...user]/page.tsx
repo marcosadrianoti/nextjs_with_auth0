@@ -3,8 +3,12 @@ import Post from '@/components/Post';
 let posts: any[];
 
 
-export default async function Home({searchParams}:any) {
-  const { id } = searchParams;
+// export default async function Home({searchParams}:any) {
+  export default async function Home({ params }: { params: { user: string } }) {
+  const id = params.user[0];
+  const name = decodeURIComponent(params.user[1]);
+  // const { id, name } = searchParams;
+  
   try{
     const res = await fetch(`${process.env.BASE_URL}/api/get-posts/${id}`,
     {
@@ -25,6 +29,7 @@ export default async function Home({searchParams}:any) {
        </div>
        <br />
        <h1>Feed</h1>
+       <h1>Author = {name}</h1>
        {
          posts.map((post) => {
            return (
@@ -33,7 +38,7 @@ export default async function Home({searchParams}:any) {
              id={post.id}
              title={post.title}
              content={post.content}
-            //  authorName={post.author}
+            //  authorName={post.author.name}
              />
            )
          })

@@ -7,6 +7,10 @@ export async function GET(request: Request, params:any){
       // published: true,
       authorId: id
     },
+    include: {
+      author: {
+        select: {name: true}
+      }}
   })
 
   return Response.json(posts);

@@ -2,7 +2,7 @@
 import styles from '@/app/page.module.css'
 import Link from 'next/link';
 import { SetStateAction, useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useParams, redirect } from 'next/navigation';
 
 export default function AddPost(){
   const [title, setTitle] = useState('');
@@ -30,13 +30,13 @@ export default function AddPost(){
             },
             body: JSON.stringify({title, content}) })
             
-        router.refresh()
-    } catch (error){
+      } catch (error){
         console.error(error)
-    }
-
-    setTitle('');
-    setContent('');
+      }
+      
+      setTitle('');
+      setContent('');
+      router.push(`/feed?id=${id}`);
   };
 
     return (
@@ -47,6 +47,7 @@ export default function AddPost(){
         <div>
           <label htmlFor="title">Title:</label>
           <input
+            className='text-zinc-800'
             type="text"
             id="title"
             value={title}
@@ -57,13 +58,14 @@ export default function AddPost(){
         <div>
           <label htmlFor="content">Content:</label>
           <textarea
+            className='text-zinc-800'
             id="content"
             value={content}
             onChange={handleContentChange}
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className='bg-slate-700 rounded-md p-1' type="submit">Submit</button>
       </form>
     </main>
     )
