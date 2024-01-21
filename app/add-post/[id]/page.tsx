@@ -2,12 +2,14 @@
 import styles from '@/app/page.module.css'
 import Link from 'next/link';
 import { SetStateAction, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 
 export default function AddPost(){
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const router = useRouter()
+  const params = useParams()
+  const id = params.id;
 
   const handleTitleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
     setTitle(event.target.value);
@@ -21,7 +23,7 @@ export default function AddPost(){
     event.preventDefault();
     
     try{
-        await fetch('/api/add-post', {
+        await fetch(`http://localhost:3000/api/add-post/${id}`, {
             method: 'POST', 
             headers: {
             'Content-Type': 'application/json'

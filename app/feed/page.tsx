@@ -4,8 +4,8 @@ let posts: any[];
 
 
 export default async function Home({searchParams}:any) {
+  const { id } = searchParams;
   try{
-    const { id } = searchParams;
     const res = await fetch(`${process.env.BASE_URL}/api/get-posts/${id}`,
     {
       // method: 'GET',
@@ -19,7 +19,7 @@ export default async function Home({searchParams}:any) {
   }
   return (
     <main>
-      <Link href={'/add-post'}>Add Post</Link>
+      <Link href={`/add-post/${id}`}>Add Post</Link>
        <div>
          <a href='/api/auth/logout'>Logout</a>
        </div>
