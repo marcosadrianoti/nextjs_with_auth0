@@ -2,6 +2,7 @@
 
 import React,{ useEffect, useState, SetStateAction } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function EditPage({params} :{params:{id:number}}) {
     const [authorId, setAuthorId] = useState('');
@@ -49,17 +50,39 @@ export default function EditPage({params} :{params:{id:number}}) {
     }, [id])
 
     return (
-        <div className="w-full max-w-5xl m-auto">
-            <h1 className="text-3xl font-bold">Edit = {title}</h1>
-            <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Title</label>
-                <input type="text" name="title" id="title" className="border border-slate-300 p-1 m-1 text-zinc-800" value={title} onChange={e => setTitle(e.target.value)}/>
-                <br />
-            <label htmlFor="content">Content</label>
-                <textarea  name="content" id="content" className="border border-slate-300 p-1 m-1 text-zinc-800" value={content} onChange={e => setContent(e.target.value)}/>
-                <br />
-                <button className='bg-slate-700 rounded-md p-1' type="submit">Submit</button>
-            </form>
-        </div>
+      <>
+        <header className='flex flex-col items-center m-5'>
+          <h1 className="text-3xl font-bold">Edit Post</h1>
+          <Link className='text-blue-500 py-5' href={'/'}>View Feed</Link>
+        </header>
+        <main className='flex flex-col items-center m-5 gap-5'>
+          <form className='flex flex-col w-1/2' onSubmit={handleSubmit}>
+            <div className='flex flex-col pb-3'>
+              <label className='text-xl' htmlFor="title">Title</label>
+              <input
+                className="border border-slate-300 p-1 m-1 text-zinc-800"
+                type="text"
+                name="title"
+                id="title"
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                />
+            </div>
+            <div className='flex flex-col pb-6'>
+              <label className='text-xl' htmlFor="content">Content</label>
+              <textarea
+                className="border border-slate-300 p-1 m-1 text-zinc-800"
+                name="content"
+                id="content"
+                value={content}
+                onChange={e => setContent(e.target.value)}
+              />
+            </div>
+            <div className='flex justify-center'>
+              <button className='bg-slate-700 rounded-md p-1 w-1/6' type="submit">Submit</button>
+            </div>
+          </form>
+        </main>
+      </>
     )
 }

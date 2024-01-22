@@ -23,13 +23,13 @@ export default async function Home() {
     } catch (error){
       console.error(error);
     }
-    
+
     redirect(`/feed/${userID}/${userName}`);
   }
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <a href='/api/auth/login'>Login</a>
+      <a className="text-3xl font-bold" href='/api/auth/login'>Login</a>
     </main>
   );
 }

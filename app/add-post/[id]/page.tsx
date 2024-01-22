@@ -45,33 +45,39 @@ export default function AddPost(){
   };
 
     return (
-        <main className={styles.main}>
-            <Link href={'/'}>View Feed</Link>
-        <h1>Add Post</h1>
-        <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            className='text-zinc-800'
-            type="text"
-            id="title"
-            value={title}
-            onChange={handleTitleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="content">Content:</label>
-          <textarea
-            className='text-zinc-800'
-            id="content"
-            value={content}
-            onChange={handleContentChange}
-            required
-          />
-        </div>
-        <button className='bg-slate-700 rounded-md p-1' type="submit">Submit</button>
+      <>
+        <header className='flex flex-col items-center m-5'>
+          <h1 className='text-3xl font-bold'>Add Post</h1>
+          <Link className='text-blue-500 py-5' href={'/'}>View Feed</Link>
+        </header>
+        <main className='flex flex-col items-center m-5'>
+          <form className='flex flex-col w-1/2' onSubmit={handleSubmit}>
+          <div className='flex flex-col pb-3'>
+            <label className='text-xl' htmlFor="title">Title</label>
+            <input
+              className='text-zinc-800'
+              type="text"
+              id="title"
+              value={title}
+              onChange={handleTitleChange}
+              required
+            />
+          </div>
+          <div className='flex flex-col pb-6'>
+            <label className='text-xl' htmlFor="content">Content</label>
+            <textarea
+              className='text-zinc-800'
+              id="content"
+              value={content}
+              onChange={handleContentChange}
+              required
+            />
+          </div>
+          <div className='flex justify-center'>
+            <button className='bg-slate-700 rounded-md p-1 w-1/6' type="submit">Submit</button>
+          </div>
       </form>
     </main>
+    </>
     )
 }
