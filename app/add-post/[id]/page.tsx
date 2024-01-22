@@ -1,9 +1,8 @@
 'use client'
 
-// import styles from '@/app/page.module.css';
 import Link from 'next/link';
 import { SetStateAction, useState } from 'react';
-import { useRouter, useParams, redirect } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 
 export default function AddPost(){
   const [name, setName] = useState('');
