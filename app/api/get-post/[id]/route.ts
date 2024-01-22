@@ -2,12 +2,12 @@ import prisma from "@/lib/prisma";
 
 export async function GET(request: Request, params:any){
   const { id } = params.params;
-  console.log('id author====>', id);
+  console.log('id===>', id);
   
-  const posts = await prisma.post.findMany({
+  const post = await prisma.post.findUnique({
     where: {
       // published: true,
-      authorId: id
+      id: id
     },
     include: {
       author: {
@@ -15,5 +15,5 @@ export async function GET(request: Request, params:any){
       }}
   })
 
-  return Response.json(posts);
+  return Response.json(post);
 }

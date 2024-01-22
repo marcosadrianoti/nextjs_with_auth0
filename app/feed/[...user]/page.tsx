@@ -4,9 +4,11 @@ let posts: any[];
 
 
 // export default async function Home({searchParams}:any) {
-  export default async function Home({ params }: { params: { user: string } }) {
+export default async function Home({ params }: { params: { user: string } }) {
   const id = params.user[0];
   const name = decodeURIComponent(params.user[1]);
+  console.log('id===>', id, 'name===>', name);
+  
   // const { id, name } = searchParams;
   
   try{
@@ -17,6 +19,8 @@ let posts: any[];
       cache: 'no-store',
     })
     posts = await res.json();
+    console.log('posts===>', posts);
+    
 
   } catch (error){
     console.error(error);

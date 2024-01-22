@@ -5,6 +5,7 @@ import { SetStateAction, useState } from 'react';
 import { useRouter, useParams, redirect } from 'next/navigation';
 
 export default function AddPost(){
+  const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const router = useRouter()
@@ -23,20 +24,26 @@ export default function AddPost(){
     event.preventDefault();
     
     try{
-        await fetch(`http://localhost:3000/api/add-post/${id}`, {
+        const res = await fetch(`http://localhost:3000/api/add-post/${id}`, {
             method: 'POST', 
             headers: {
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({title, content}) })
+            const currentPost = await res.json();
+            const currentName = currentPost.author.name;
+            setName(currentName);
+            console.log('teste===>', currentName);
+            router.push(`/feed/${id}/${currentName}`);
+            router.refresh()
+        
             
       } catch (error){
         console.error(error)
       }
       
-      setTitle('');
-      setContent('');
-      router.push(`/feed?id=${id}`);
+      // setTitle('');
+      // setContent('');
   };
 
     return (

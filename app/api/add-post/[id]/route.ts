@@ -10,7 +10,11 @@ export async function POST(request: Request, params:any){
       content,
       published: true,
       author: {connect: {id: id }}
-    }
+    },
+    include: {
+      author: {
+        select: {name: true}
+      }}
   })
   return NextResponse.json(post);
 }
