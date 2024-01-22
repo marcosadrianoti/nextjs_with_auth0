@@ -7,16 +7,6 @@ export default function EditPostButton({postId}: {postId: string}) {
     async function handleClick(){
         router.push(`/edit-post/${postId}`);
         router.refresh()
-        
-        // try {
-        //     await fetch(`http://localhost:3000/edit-post/${postId}`, {
-        //         // method: 'PUT'
-        //     })
-        //     // router.refresh()
-        // } catch(e){
-        //     console.error(e)
-        // }
-       
     }
 
     return (

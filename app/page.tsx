@@ -19,9 +19,11 @@ export default async function Home() {
       );
       const data = await res.json();
       userID = data.id;
+
     } catch (error){
       console.error(error);
     }
+    
     redirect(`/feed/${userID}/${userName}`);
   }
   
