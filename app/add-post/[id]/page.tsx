@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '@/app/page.module.css';
+// import styles from '@/app/page.module.css';
 import Link from 'next/link';
 import { SetStateAction, useState } from 'react';
 import { useRouter, useParams, redirect } from 'next/navigation';
