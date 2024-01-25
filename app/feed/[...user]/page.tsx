@@ -29,7 +29,8 @@ export default async function Home({ params }: { params: { user: string } }) {
             {/* <a className='text-blue-500' href='/api/auth/logout'>Logout</a> */}
           </div>
         </section>
-        <section className='grid grid-cols-3 gap-3 p-5'>
+        <section className='grid grid-cols-3 gap-3 p-5 w-2/3'>
+        {/* <Card title="Título do Card" content="Conteúdo do Card. Este é um exemplo de texto que será cortado, e o botão 'Leia mais...' permitirá expandir o texto."/> */}
         {
           posts.map((post) => {
             return (

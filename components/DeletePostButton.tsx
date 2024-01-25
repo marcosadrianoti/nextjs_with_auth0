@@ -18,6 +18,6 @@ export default function DeletePostButton({postId}: {postId: string}) {
     }
 
     return (
-        <button className='bg-slate-700 rounded-md p-1 w-1/6' onClick={handleClick}>Delete Post</button>
+        <button className='bg-slate-700 rounded-md p-1 w-1/3' onClick={handleClick}>Delete Post</button>
     )
 }
