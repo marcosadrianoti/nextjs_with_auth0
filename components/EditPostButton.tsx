@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation"
+import { MdOutlineEdit } from "react-icons/md";
 
 export default function EditPostButton({postId}: {postId: string}) {
     const router = useRouter()
@@ -10,6 +11,9 @@ export default function EditPostButton({postId}: {postId: string}) {
     }
 
     return (
-        <button className='bg-slate-700 rounded-md p-1 w-1/3' onClick={handleClick}>Edit Post</button>
+        <button className='flex gap-2 items-center justify-center bg-stone-600 rounded-md p-2 w-2/3 text-gray-200' onClick={handleClick}>
+            <MdOutlineEdit />
+            Edit
+        </button>
     )
 }

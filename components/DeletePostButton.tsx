@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation"
+import { RiDeleteBinLine } from "react-icons/ri"
 
 export default function DeletePostButton({postId}: {postId: string}) {
     const router = useRouter()
@@ -18,6 +19,9 @@ export default function DeletePostButton({postId}: {postId: string}) {
     }
 
     return (
-        <button className='bg-slate-700 rounded-md p-1 w-1/3' onClick={handleClick}>Delete Post</button>
+        <button className='flex gap-2 items-center justify-center bg-stone-600 text-gray-200 rounded-md p-2 w-2/3' onClick={handleClick}>
+            <RiDeleteBinLine />
+            Delete
+        </button>
     )
 }

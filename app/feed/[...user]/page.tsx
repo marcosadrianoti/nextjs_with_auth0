@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Post from '@/components/Post';
+import { MdPostAdd, MdLogout } from "react-icons/md";
 let posts: any[];
 
 
@@ -19,13 +20,19 @@ export default async function Home({ params }: { params: { user: string } }) {
   }
   return (
     <>
-      <main className='flex flex-col items-center bg-stone-900 gap-5'>
+      <main className='flex flex-col items-center bg-stone-900 gap-5 min-h-screen'>
         <section className='flex flex-col items-center m-5'>
-          <h1 className='text-3xl font-bold'>Feed</h1>
+          <h1 className='text-3xl font-bold text-pink-500'>Feed</h1>
           <h1 className='text-2xl text-gray-400'>{name}</h1>
           <div className='flex gap-5 py-5'>
-            <Link className='text-blue-500' href={`/add-post/${id}`}>Add Post</Link>
-            <Link className='text-blue-500' href='/api/auth/logout'>Logout</Link>
+            <Link className='flex gap-1 items-center justify-center text-blue-500' href={`/add-post/${id}`}>
+              <MdPostAdd />
+              Add Post
+            </Link>
+            <Link className='flex gap-1 items-center justify-center text-blue-500' href='/api/auth/logout'>
+              <MdLogout />
+              Logout
+            </Link>
             {/* <a className='text-blue-500' href='/api/auth/logout'>Logout</a> */}
           </div>
         </section>
