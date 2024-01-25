@@ -13,6 +13,10 @@ p, input, textarea {
   font-family: 'Roboto', sans-serif;
 }
 
+html {
+  background-color: rgb(28 25 23);
+}
+
 
 
 :root {

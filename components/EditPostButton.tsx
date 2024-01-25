@@ -11,7 +11,7 @@ export default function EditPostButton({postId}: {postId: string}) {
     }
 
     return (
-        <button className='flex gap-2 items-center justify-center bg-stone-600 rounded-md p-2 w-2/3 text-gray-200' onClick={handleClick}>
+        <button className='flex gap-2 items-center justify-center bg-stone-600 rounded-md p-1 w-2/3 text-gray-200' onClick={handleClick}>
             <MdOutlineEdit />
             Edit
         </button>

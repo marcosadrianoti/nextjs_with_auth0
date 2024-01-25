@@ -19,7 +19,7 @@ export default function DeletePostButton({postId}: {postId: string}) {
     }
 
     return (
-        <button className='flex gap-2 items-center justify-center bg-stone-600 text-gray-200 rounded-md p-2 w-2/3' onClick={handleClick}>
+        <button className='flex gap-2 items-center justify-center bg-stone-600 text-gray-200 rounded-md p-1 w-2/3' onClick={handleClick}>
             <RiDeleteBinLine />
             Delete
         </button>
