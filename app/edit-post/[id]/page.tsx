@@ -1,6 +1,6 @@
 'use client'
 
-import React,{ useEffect, useState, SetStateAction } from 'react';
+import React,{ useEffect, useState, SetStateAction, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -27,7 +27,6 @@ export default function EditPage({params} :{params:{id:number}}) {
         } catch (error){
         console.error(error);
         }
-
         router.push(`/feed/${authorId}/${name}`);
     }
 
@@ -35,7 +34,6 @@ export default function EditPage({params} :{params:{id:number}}) {
         try{
             const res = await fetch(`http://localhost:3000/api/get-post/${id}`);
             const post = await res.json();
-            
             setAuthorId(post.authorId);
             setName(post.author.name);
             setTitle(post.title);
@@ -60,7 +58,7 @@ export default function EditPage({params} :{params:{id:number}}) {
             <div className='flex flex-col pb-3'>
               <label className='text-xl' htmlFor="title">Title</label>
               <input
-                className="border border-slate-300 p-1 m-1 text-zinc-800"
+                className="font-roboto border border-slate-300 rounded-md p-1 m-1 text-zinc-800"
                 type="text"
                 name="title"
                 id="title"
@@ -71,7 +69,7 @@ export default function EditPage({params} :{params:{id:number}}) {
             <div className='flex flex-col pb-6'>
               <label className='text-xl' htmlFor="content">Content</label>
               <textarea
-                className="border border-slate-300 p-1 m-1 text-zinc-800"
+                className="font-roboto border border-slate-300 rounded-md  p-1 m-1 text-zinc-800"
                 name="content"
                 id="content"
                 value={content}

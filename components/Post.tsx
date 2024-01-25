@@ -9,7 +9,7 @@ type PostProps = {
 
 const Post: React.FC<PostProps> = ({ id, title, content }) => {
   return (
-    <div className="card items-center border-2 border-slate-700 rounded-md p-3 w-1/2">
+    <div className="card items-center border-2 border-slate-700 rounded-md p-3">
       <h3 className="flex text-2xl justify-center">{title}</h3>
       <p className="text-lg py-2 text-gray-300">{content}</p>
       <div className="flex gap-2 justify-center items-center">
