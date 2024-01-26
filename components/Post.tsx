@@ -23,7 +23,7 @@ const Post: React.FC<PostProps> = ({ id, title, content }) => {
           onClick={() => setExpanded(!expanded)}
           className="text-blue-900 text-bold mt-1 hover:underline"
         >
-          {expanded ? 'Leia menos...' : 'Leia mais...'}
+          {expanded ? 'Read less...' : 'Read more...'}
         </button>
       </div>
       <div className="flex gap-4 justify-center items-center mt-4">

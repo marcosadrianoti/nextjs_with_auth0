@@ -21,13 +21,16 @@ export default async function Home({ params }: { params: { user: string } }) {
   return (
     <>
       <main className='flex flex-col items-center bg-stone-900 gap-5 min-h-screen'>
-        <section className='flex flex-col items-center m-5'>
-          <h1 className='text-3xl font-bold text-pink-500'>Feed</h1>
-          <h1 className='text-2xl text-gray-400'>{name}</h1>
-          <div className='flex gap-5 py-5'>
+        <section className='flex justify-between m-5 w-full'>
+          <div className='w-1/3'></div>
+          <div className='w-1/3 text-center'>
+            <h1 className='text-3xl font-bold text-pink-500'>My Post-its</h1>
+            <h1 className='text-2xl text-gray-400'>{name}</h1>
+          </div>
+          <div className='flex justify-end items-start gap-5 w-1/3 mr-5'>
             <Link className='flex gap-1 items-center justify-center text-blue-500' href={`/add-post/${id}`}>
               <MdPostAdd />
-              Add Post
+              Add Post-it
             </Link>
             <Link className='flex gap-1 items-center justify-center text-blue-500' href='/api/auth/logout'>
               <MdLogout />
