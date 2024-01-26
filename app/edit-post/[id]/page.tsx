@@ -27,7 +27,8 @@ export default function EditPage({params} :{params:{id:number}}) {
         } catch (error){
         console.error(error);
         }
-        router.push(`/feed/${authorId}/${name}`);
+        // router.push(`/feed/${authorId}/${name}`);
+        router.push(`/`);
     }
 
     const getCurrentPost = async (id: any) => {
@@ -49,38 +50,53 @@ export default function EditPage({params} :{params:{id:number}}) {
 
     return (
       <>
-        <header className='flex flex-col items-center m-5'>
-          <h1 className="text-3xl font-bold">Edit Post</h1>
-          <Link className='text-blue-500 py-5' href={'/'}>View Feed</Link>
-        </header>
-        <main className='flex flex-col items-center m-5 gap-5'>
-          <form className='flex flex-col w-1/2' onSubmit={handleSubmit}>
-            <div className='flex flex-col pb-3'>
-              <label className='text-xl' htmlFor="title">Title</label>
-              <input
-                className="font-roboto border border-slate-300 rounded-md p-1 m-1 text-zinc-800"
-                type="text"
-                name="title"
-                id="title"
-                  value={title}
-                  onChange={e => setTitle(e.target.value)}
+        <main className='flex flex-col items-center bg-stone-900 gap-5 min-h-screen'>
+          <section className='flex flex-col items-center m-5'>
+            <h1 className='text-3xl font-bold text-pink-500'>Edit Post-it</h1>
+            {/* <Link className='text-blue-500 py-5' href={'/'}>View Feed</Link> */}
+          </section>
+          <section className='flex flex-col items-center m-5 p-5 gap-5 bg-stone-400 border border-slate-300 rounded-md w-1/2'>
+            <form className='flex flex-col w-full' onSubmit={handleSubmit}>
+              <div className='flex flex-col pb-3'>
+                <label className='text-xl' htmlFor="title">Title</label>
+                <input
+                  className="font-roboto border border-slate-300 rounded-md p-1 m-1 text-zinc-800"
+                  type="text"
+                  name="title"
+                  id="title"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                  />
+              </div>
+              <div className='flex flex-col pb-6'>
+                <label className='text-xl' htmlFor="content">
+                  Content
+                </label>
+                <textarea
+                  className="font-roboto border border-slate-300 rounded-md h-40  p-1 m-1 text-zinc-800"
+                  name="content"
+                  id="content"
+                  value={content}
+                  onChange={e => setContent(e.target.value)}
                 />
-            </div>
-            <div className='flex flex-col pb-6'>
-              <label className='text-xl' htmlFor="content">Content</label>
-              <textarea
-                className="font-roboto border border-slate-300 rounded-md  p-1 m-1 text-zinc-800"
-                name="content"
-                id="content"
-                value={content}
-                onChange={e => setContent(e.target.value)}
-              />
-            </div>
-            <div className='flex justify-center'>
-              <button className='bg-slate-700 rounded-md p-1 w-1/6' type='button' onClick={() => router.push(`/`)}>Cancel</button>
-              <button className='bg-slate-700 rounded-md p-1 w-1/6' type="submit">Submit</button>
-            </div>
-          </form>
+              </div>
+              <div className='flex gap-4 justify-center items-center mt-4'>
+                <button
+                  className='flex gap-2 items-center justify-center bg-stone-600 hover:bg-stone-700 rounded-md p-1 w-2/3 text-gray-200'
+                  type="submit"
+                >
+                  Submit
+                </button>
+                <button
+                  className='flex gap-2 items-center justify-center bg-stone-600 hover:bg-stone-700 rounded-md p-1 w-2/3 text-gray-200'
+                  type='button'
+                  onClick={() => router.push(`/`)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </section>
         </main>
       </>
     )
