@@ -56,7 +56,7 @@ export default function AddPost(){
               <div className='flex flex-col pb-3'>
                 <label className='text-xl' htmlFor="title">Title</label>
                 <input
-                  className='font-roboto text-zinc-800 rounded-md p-1'
+                  className="font-roboto border border-slate-300 rounded-md p-1 m-1 text-zinc-800"
                   type="text"
                   id="title"
                   value={title}
@@ -69,7 +69,7 @@ export default function AddPost(){
                   Content
                 </label>
                 <textarea
-                className="font-roboto border border-slate-300 rounded-md h-40  p-1 m-1 text-zinc-800"
+                className="font-roboto border border-slate-300 rounded-md h-40 p-1 m-1 text-zinc-800"
                   id="content"
                   value={content}
                   onChange={handleContentChange}
