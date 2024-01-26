@@ -13,7 +13,7 @@ export default function Login() {
             <p className="p-3">Explore and manage your ideas!</p>
             <p className="text-xl">Log in now to access your Post-its</p>
             <Link
-              className='m-5 mt-20 w-1/2 text-3xl font-bold text-white bg-pink-500 rounded-md p-1 shadow-xl' href='/api/auth/login'
+              className='m-5 mt-20 w-1/2 text-3xl font-bold text-white bg-pink-500 hover:bg-pink-600 rounded-md p-1 shadow-xl' href='/api/auth/login'
             >
               Login
             </Link>
