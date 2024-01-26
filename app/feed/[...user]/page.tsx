@@ -28,11 +28,17 @@ export default async function Home({ params }: { params: { user: string } }) {
             <h1 className='text-2xl text-gray-400'>{name}</h1>
           </div>
           <div className='flex justify-end items-start gap-5 w-1/3 mr-5'>
-            <Link className='flex gap-1 items-center justify-center text-blue-500' href={`/add-post/${id}`}>
+            <Link
+              className='flex gap-1 items-center justify-center text-blue-500 hover:text-blue-600'
+              href={`/add-post/${id}`}
+            >
               <MdPostAdd />
               Add Post-it
             </Link>
-            <Link className='flex gap-1 items-center justify-center text-blue-500' href='/api/auth/logout'>
+            <Link
+              className='flex gap-1 items-center justify-center text-blue-500 hover:text-blue-600'
+              href='/api/auth/logout'
+            >
               <MdLogout />
               Logout
             </Link>

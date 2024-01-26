@@ -77,6 +77,7 @@ export default function EditPage({params} :{params:{id:number}}) {
               />
             </div>
             <div className='flex justify-center'>
+              <button className='bg-slate-700 rounded-md p-1 w-1/6' type='button' onClick={() => router.push(`/`)}>Cancel</button>
               <button className='bg-slate-700 rounded-md p-1 w-1/6' type="submit">Submit</button>
             </div>
           </form>
